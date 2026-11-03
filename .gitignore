@@ -1,14 +1,15 @@
-# Entornos virtuales y caché de Python (NO subir a GitHub)
+# Entornos virtuales
 .venv/
 venv/
-ENV/
+env/
+
+# Caché de Python y testing
 __pycache__/
 *.py[cod]
 *$py.class
 .pytest_cache/
 
-# Archivos temporales de Office y OS
-~$*.docx
-~$*.xlsx
+# Archivos de sistema y logs
+*.log
 .DS_Store
 Thumbs.db
