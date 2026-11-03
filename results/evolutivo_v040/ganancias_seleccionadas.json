@@ -1,0 +1,14 @@
+{
+  "ganancias": [
+    239.88039321466434,
+    191.91626993509456,
+    215.83179945233476,
+    50.22001672075348,
+    29.66584005470137,
+    8.999139391334865
+  ],
+  "criterio": "solucion del frente de Pareto que domina simultaneamente al CTC base en RMSE (8.808 vs 11.353 mm) y esfuerzo (0.5130 vs 0.5159 Nm2s)",
+  "semilla": 10,
+  "modo": "rapido",
+  "duracion": 9.0
+}

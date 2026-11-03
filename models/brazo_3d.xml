@@ -1,0 +1,75 @@
+<mujoco model="ROBOT IA 3DOF - Codo visible v0.5.0">
+  <compiler angle="radian" autolimits="true"/>
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="RK4"/>
+  <visual><global offwidth="1280" offheight="760"/><rgba haze=".75 .82 .88 1"/><headlight ambient=".55 .57 .61" diffuse=".78 .79 .81" specular=".23 .23 .23"/></visual>
+  <asset>
+    <texture name="sky_soft" type="skybox" builtin="gradient" rgb1=".72 .81 .89" rgb2=".90 .93 .96" width="512" height="512"/>
+    <texture name="floor" type="2d" builtin="checker" rgb1=".57 .63 .69" rgb2=".68 .74 .79" width="512" height="512"/>
+    <material name="floor_mat" texture="floor" texrepeat="8 8" reflectance=".09"/>
+    <material name="shell" rgba=".74 .79 .83 1" specular=".68" shininess=".75"/>
+    <material name="dark" rgba=".13 .17 .21 1" specular=".4" shininess=".6"/>
+    <material name="steel" rgba=".35 .44 .53 1" specular=".85" shininess=".85"/>
+    <material name="blue" rgba=".08 .38 .68 1" specular=".55" shininess=".6"/>
+    <material name="orange" rgba=".96 .48 .14 1" specular=".6" shininess=".6"/>
+    <material name="green" rgba=".04 .84 .43 1" specular=".7" shininess=".6"/>
+  </asset>
+  <default><joint damping="0.015" armature="0.00012" frictionloss="0.002"/><geom contype="0" conaffinity="0"/></default>
+  <worldbody>
+    <light pos=".5 -.7 1.6" dir="-.2 .2 -1" diffuse=".9 .88 .84" castshadow="true"/>
+    <light pos="-.5 .6 1.0" dir=".4 -.4 -.7" diffuse=".45 .48 .54"/>
+    <!-- Piso/mesa baja SOLO visualmente. El origen del robot y la cinemática no cambian. -->
+    <geom name="suelo" type="plane" pos="0 0 -.180" size="3 3 .1" material="floor_mat"/>
+    <!-- Columna fija de apoyo desde la plataforma inferior hasta la base del robot. -->
+    <geom name="columna_soporte_visual" type="cylinder" fromto="0 0 -.175 0 0 -.022" size=".024" material="steel" mass="0"/>
+    <geom type="box" pos="0 0 -.012" size=".085 .085 .012" material="dark" mass="0"/>
+    <geom type="cylinder" pos="0 0 .012" size=".058 .012" material="steel" mass="0"/>
+    <geom type="cylinder" pos="0 0 .025" size=".047 .009" material="dark" mass="0"/>
+    <body name="base" pos="0 0 .079">
+      <joint name="q1" type="hinge" axis="0 0 1" range="-2.8 2.8"/>
+      <geom name="pedestal" type="cylinder" fromto="0 0 -.046 0 0 0" size=".027" mass=".25" material="shell"/>
+      <geom type="cylinder" fromto="0 0 -.018 0 0 -.013" size=".030" mass="0" material="dark"/>
+      <geom type="cylinder" fromto="0 -.024 0 0 .024 0" size=".028" mass="0" material="steel"/>
+      <body name="eslabon_1" pos="0 0 0">
+        <joint name="q2" type="hinge" axis="0 -1 0" range="-1.25 1.35"/>
+        <geom name="link1_phys" type="capsule" fromto="0 0 0 .113 0 0" size=".011" mass=".12" material="blue"/>
+        <geom type="box" pos=".0565 0 0" size=".049 .017 .017" mass="0" material="shell"/>
+        <geom type="box" pos=".0565 -.0175 0" size=".043 .001 .008" mass="0" material="blue"/>
+        <geom type="cylinder" fromto="0 -.024 0 0 .024 0" size=".026" mass="0" material="dark"/>
+        <geom type="cylinder" fromto="0 -.027 0 0 -.025 0" size=".017" mass="0" material="orange"/>
+        <body name="eslabon_2" pos=".113 0 0">
+          <joint name="q3" type="hinge" axis="0 -1 0" range="-2.4 2.4"/>
+          <geom name="link2_phys" type="capsule" fromto="0 0 0 .140 0 0" size=".009" mass=".085" material="orange"/>
+          <geom type="box" pos=".072 0 0" size=".061 .013 .013" mass="0" material="shell"/>
+          <geom type="box" pos=".072 -.0135 0" size=".054 .001 .006" mass="0" material="orange"/>
+          <geom type="cylinder" fromto="0 -.023 0 0 .023 0" size=".024" mass="0" material="dark"/>
+          <geom type="cylinder" fromto="0 -.026 0 0 -.024 0" size=".016" mass="0" material="blue"/>
+          <body name="herramienta" pos=".140 0 0">
+            <geom name="tool_phys" type="sphere" size=".013" mass=".015" material="dark"/>
+            <geom type="box" pos=".007 0 0" size=".012 .016 .012" mass="0" material="steel"/>
+            <geom type="box" pos=".020 -.012 0" size=".013 .003 .004" mass="0" material="steel"/>
+            <geom type="box" pos=".020 .012 0" size=".013 .003 .004" mass="0" material="steel"/>
+            <!-- Esfera/Lente visual sin masa entre las mordazas del efector para mostrar la bola o foco óptico según estado -->
+            <geom name="bola_efector" type="sphere" pos=".020 0 0" size=".010" mass="0" rgba=".10 .65 .98 .92"/>
+            <site name="punta" size=".008" pos="0 0 0" rgba=".03 .97 .35 1"/>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="objetivo" mocap="true" pos=".16 .08 .16">
+      <!-- Objetivo matemático permanece en el centro; anillo/canasta visible alrededor del efector -->
+      <geom name="objetivo_centro" type="sphere" size=".021" rgba=".98 .13 .19 .25"/>
+      <geom name="objetivo_aro_base" type="cylinder" pos="0 0 -.022" size=".024 .002" rgba=".98 .35 .10 .55"/>
+      <geom name="objetivo_norte" type="sphere" pos="0 0 .025" size=".004" rgba="1 .12 .15 1"/>
+      <geom name="objetivo_sur" type="sphere" pos="0 0 -.025" size=".004" rgba="1 .12 .15 1"/>
+      <geom name="objetivo_este" type="sphere" pos=".025 0 0" size=".004" rgba="1 .12 .15 1"/>
+      <geom name="objetivo_oeste" type="sphere" pos="-.025 0 0" size=".004" rgba="1 .12 .15 1"/>
+      <geom name="objetivo_frente" type="sphere" pos="0 .025 0" size=".004" rgba="1 .12 .15 1"/>
+      <geom name="objetivo_atras" type="sphere" pos="0 -.025 0" size=".004" rgba="1 .12 .15 1"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor name="motor_q1" joint="q1" ctrllimited="true" ctrlrange="-.7 .7" gear="1"/>
+    <motor name="motor_q2" joint="q2" ctrllimited="true" ctrlrange="-.7 .7" gear="1"/>
+    <motor name="motor_q3" joint="q3" ctrllimited="true" ctrlrange="-.45 .45" gear="1"/>
+  </actuator>
+</mujoco>

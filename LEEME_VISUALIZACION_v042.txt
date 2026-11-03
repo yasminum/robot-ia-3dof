@@ -1,0 +1,19 @@
+ROBOT-IA 3DOF v0.4.2 — VISUALIZACIÓN DEL CODO
+
+CAMBIO EXCLUSIVAMENTE GRÁFICO:
+- Se bajó el piso visible a z=-0.180 m.
+- Se agregó un soporte fijo bajo la base.
+- Se ajustó levemente el encuadre de cámara para ver el codo durante el recorrido.
+- No se modificaron longitudes L1/L2, altura BASE=0.079, articulaciones, IK/FK,
+  dinámica, límites de torque, ganancias CTC, MPC ni NSGA-II.
+- El piso y soporte no tienen colisiones (igual que la geometría del modelo fuente).
+
+INSTRUCCIONES:
+1) Descomprime esta versión en C:\ROBOT_IA_3DOF.
+2) Crea .venv e instala requirements.txt si es una carpeta nueva.
+3) Copia gains JSON si lo usabas en v0.4.1:
+   results\evolutivo_v040\ganancias_seleccionadas.json
+4) Ejecuta: .venv\Scripts\python.exe main.py
+5) Repite la misma trayectoria y comprueba visualmente el codo.
+
+La nueva plataforma no altera los resultados científicos del control.
