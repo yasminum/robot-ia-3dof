@@ -214,14 +214,20 @@ function q = ik_3gdl(p_xyz, elbow, robot)
     q = [q1, q2, q3];
 end
 
-function [J, detJ, w_yosh] = jacobiano_3gdl(q, robot)
+function [J_v, detJ, w_yosh, J_w, J_geom] = jacobiano_3gdl(q, robot)
     q1 = q(1); q2 = q(2); q3 = q(3);
     r = robot.L1 * cos(q2) + robot.L2 * cos(q2 + q3);
     drb = -robot.L1 * sin(q2) - robot.L2 * sin(q2 + q3);
     drc = -robot.L2 * sin(q2 + q3);
-    J = [-r*sin(q1), drb*cos(q1), drc*cos(q1);
-          r*cos(q1), drb*sin(q1), drc*sin(q1);
-          0,         robot.L1*cos(q2) + robot.L2*cos(q2+q3), robot.L2*cos(q2+q3)];
+    % Bloque traslacional J_v (3x3)
+    J_v = [-r*sin(q1), drb*cos(q1), drc*cos(q1);
+            r*cos(q1), drb*sin(q1), drc*sin(q1);
+            0,         r,           robot.L2*cos(q2+q3)];
+    % Bloque angular J_w = [z0, z1, z2] (3x3)
+    J_w = [0,  sin(q1),  sin(q1);
+           0, -cos(q1), -cos(q1);
+           1,  0,        0];
+    J_geom = [J_v; J_w];
     detJ = -robot.L1 * robot.L2 * sin(q3) * r;
     w_yosh = abs(detJ);
 end

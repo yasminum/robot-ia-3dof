@@ -1,0 +1,220 @@
+% =====================================================================
+%  GUION Y PAUTA DE EXPOSICIÓN OFICIAL (15 MIN --- 3 MIN POR ALUMNO)
+%  TRABAJO PARCIAL --- ROBÓTICA Y SISTEMAS AUTÓNOMOS 2026-2
+%  Robot Antropomórfico de 3 GDL (RRR)
+%  UNI --- Facultad de Ingeniería Industrial y de Sistemas --- Posgrado
+% =====================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{a4paper, top=2.1cm, bottom=2.1cm, left=2.0cm, right=2.0cm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,urlcolor=blue!70!black]{hyperref}
+
+% ---------- Paleta institucional UNI ----------
+\definecolor{uniGranate}{HTML}{7A121C}
+\definecolor{uniAzul}{HTML}{0B2447}
+\definecolor{uniAzulC}{HTML}{1F6FEB}
+\definecolor{uniRojo}{HTML}{B01818}
+\definecolor{uniOro}{HTML}{C59B27}
+\definecolor{cajaBg}{HTML}{F4F8FD}
+\definecolor{verdeOk}{HTML}{1B8E3A}
+\definecolor{naranja}{HTML}{C97A0A}
+\definecolor{morado}{HTML}{5B2C6F}
+
+% ---------- Encabezado y pie ----------
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape Guion de Exposición (3 min/integrante) --- Robot Antropomórfico 3\,GDL}
+\fancyhead[R]{\small\textsc{UNI --- Posgrado FIIS 2026-2}}
+\fancyfoot[C]{\small Página \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------- Cajas de expositor ----------
+\newtcolorbox{cajaexpositor}[2][]{%
+  enhanced, breakable,
+  colback=cajaBg, colframe=#1,
+  boxrule=0.8pt, arc=2.5pt,
+  left=8pt, right=8pt, top=6pt, bottom=6pt,
+  fonttitle=\bfseries\large\color{white},
+  coltitle=white, colbacktitle=#1,
+  title={#2}}
+
+\newcommand{\accion}[1]{%
+  \par\smallskip\noindent%
+  {\color{uniGranate}\textbf{[ACCIÓN / SEÑA EN PANTALLA]:}} {\itshape\color{uniAzul!90!black} #1}\par\smallskip%
+}
+
+\newcommand{\speech}[1]{%
+  \noindent{\color{verdeOk!85!black}\textbf{[SPEECH]:}} «#1»\par\medskip%
+}
+
+\begin{document}
+
+% ---------- CABECERA INSTITUCIONAL ----------
+\begin{center}
+  {\color{uniGranate}\rule{\textwidth}{2.2pt}}\\[2.5mm]
+  \begin{minipage}{0.16\textwidth}
+    \centering
+    \IfFileExists{logo.jpeg}{\includegraphics[width=2.1cm,keepaspectratio]{logo.jpeg}}{%
+      \IfFileExists{logo_uni.png}{\includegraphics[width=2.1cm,keepaspectratio]{logo_uni.png}}{}}
+  \end{minipage}%
+  \begin{minipage}{0.82\textwidth}
+    \centering
+    {\Large\bfseries\scshape\color{uniGranate} Universidad Nacional de Ingeniería}\\[1mm]
+    {\small\bfseries Facultad de Ingeniería Industrial y de Sistemas --- Unidad de Posgrado}\\[1mm]
+    {\normalsize\bfseries\color{uniAzul} MAESTRÍA EN INGENIERÍA DE SISTEMAS / INTELIGENCIA ARTIFICIAL}\\
+    {\small Asignatura: Robótica y Sistemas Autónomos \,|\, Docente: Ing.\ Wilson Dennis Reyes Vásquez}\\[2mm]
+    {\large\bfseries\color{uniAzulC} GUION CRONOMETRADO DE SUSTENTACIÓN (15 MINUTOS --- 3 MIN POR ALUMNO)}
+  \end{minipage}\\[2.5mm]
+  {\color{uniGranate}\rule{\textwidth}{1.4pt}}
+\end{center}
+
+\vspace{1mm}
+
+% ---------- TABLA MAESTRA DE DISTRIBUCIÓN ----------
+\section*{Distribución Maestra de Tiempos y Diapositivas (12 Diapositivas)}
+
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{c l c c X}
+\toprule
+\textbf{N.º} & \textbf{Expositor(a)} & \textbf{Tiempo} & \textbf{Diapositivas} & \textbf{Bloques Temáticos y Demostración} \\
+\midrule
+\textbf{1} & \textbf{Amit Roy Flores Rivera} & \texttt{00:00 -- 03:00} & \textbf{Diap.\ 1, 2 y 3} & Presentación institucional, motivación, planta física real (Conejo Benítez, 2021) y Cinemática Directa --- Método 1 (Denavit-Hartenberg). \\
+\textbf{2} & \textbf{Franklin Enrique Alegría Barboza} & \texttt{03:00 -- 06:00} & \textbf{Diap.\ 4 y 5} & Cinemática Directa --- Métodos 2 y 3 (MTH y Geométrico), validación numérica de $T_0^1, T_0^2, T_0^3$ y Cinemática Inversa de doble rama ($\sigma=\pm 1$). \\
+\textbf{3} & \textbf{José Luis Espinoza Chamaya} & \texttt{06:00 -- 09:00} & \textbf{Diap.\ 6 y 7} & Cinemática Diferencial ($J_v$ y $J_\omega$ de $6\times 3$), Singularidades ($\det J_v=0$), Manipulabilidad de Yoshikawa y Pseudoinversa Amortiguada (DLS). \\
+\textbf{4} & \textbf{Raquel Medianero Huari} & \texttt{09:00 -- 12:00} & \textbf{Diap.\ 8, 9 y 10} & Trayectorias polinomiales ($C^1/C^2$), foco central en la optimización de ganancias del \textbf{CTC con NSGA-II} y comparación frente a CLIK-DLS (Tabla 2 y Figura 2). \\
+\textbf{5} & \textbf{Yasmín Mariela Urrego Montoya} & \texttt{12:00 -- 15:00} & \textbf{Diap.\ 11 y 12} & Aplicación funcional 3D en MuJoCo («Circuito de 5 Aros»), conclusiones cuantitativas e integración de \textbf{Visión Artificial por Redes Neuronales Convolucionales (CNN)}. \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\vspace{2mm}
+
+% =====================================================================
+% EXPOSITOR 1
+% =====================================================================
+\begin{cajaexpositor}[uniAzul]{EXPOSITOR 1: Amit Roy Flores Rivera (Minuto 00:00 a 03:00 \,|\, Diapositivas 1, 2 y 3)}
+
+\textbf{\color{uniAzul}Bloque 1.1 --- [00:00 -- 00:45] Diapositiva 1: Portada Institucional UNI}
+\accion{Ubicarse al lado izquierdo de la pantalla con postura firme, mirar al docente Ing.\ Wilson Dennis Reyes Vásquez y al jurado, y señalar con la mano abierta el título de la Diapositiva 1.}
+\speech{Buenas noches, ingeniero Wilson Reyes Vásquez y compañeros de la Maestría. Nuestro equipo —integrado por Franklin Alegría, José Luis Espinoza, Raquel Medianero, Yasmín Urrego y quien les habla, Amit Flores— presenta el Trabajo Parcial sobre el modelado cinemático, diferencial y control híbrido evolutivo de un \textbf{Robot Antropomórfico de 3 grados de libertad}, implementado de forma dual y verificada tanto en \textbf{MATLAB} como en un \textbf{Gemelo Digital 3D en Python y MuJoCo}.}
+
+\textbf{\color{uniAzul}Bloque 1.2 --- [00:45 -- 01:50] Diapositiva 2: Caso de Estudio Real y Arquitectura Funcional}
+\accion{Avanzar a la Diapositiva 2. Señalar primero la tabla superior izquierda (Planta Física Real), indicando las tres articulaciones $q_1, q_2, q_3$ y los servomotores Dynamixel.}
+\speech{Como planta física de referencia adoptamos el manipulador antropomórfico RRR real documentado por Conejo Benítez (2021), accionado por servomotores \textbf{Dynamixel AX-18A} en la cintura y \textbf{AX-12A} en hombro y codo. Sus dimensiones exactas son: altura de base $d_1 = 0{,}079\;\text{m}$, brazo primario $L_1 = 0{,}113\;\text{m}$ y antebrazo-efector $L_2 = 0{,}140\;\text{m}$, lo que define una envolvente esférica de alcance radial máximo $R_{\max} = L_1 + L_2 = 0{,}253\;\text{m}$ con límites de par de $0{,}70\;\text{N\,m}$ en cintura y hombro, y $0{,}45\;\text{N\,m}$ en el codo.}
+
+\accion{Señalar la Figura 1 a la derecha (Gemelo Digital 3D en MuJoCo) y luego el recuadro verde inferior.}
+\speech{Desde primeros principios de teoría de mecanismos, un manipulador RRR de 3 GDL sin muñeca esférica gobierna las tres coordenadas traslacionales $[x, y, z]$ de su extremo. Por ello, diseñamos dos modos funcionales exactos que se aprecian en la Figura 1: un \textbf{Modo Laboratorio de Lente o Puntero Óptico} de precisión submilimétrica, y un \textbf{Modo Juego de Circuito de 5 Aros para encestar una esfera} con máquina de estados visual 3D.}
+
+\textbf{\color{uniAzul}Bloque 1.3 --- [01:50 -- 03:00] Diapositiva 3: Cinemática Directa --- Método 1 (Denavit-Hartenberg)}
+\accion{Avanzar a la Diapositiva 3. Señalar el esquema vectorial TikZ de la izquierda siguiendo con el puntero láser desde la base $\{S_0\}$, subiendo por $d_1$ al hombro, luego $L_1$ al codo y $L_2$ hasta el efector $\{S_3\}$.}
+\speech{Para el modelado de la cinemática directa seguimos rigurosamente la metodología vista en clase, comprobando tres métodos independientes. En el primer método —el \textbf{Algoritmo de Denavit-Hartenberg estándar}—, asignamos los marcos ortonormales $\{S_0\}$ a $\{S_3\}$ como muestra el esquema izquierdo. El eje $Z_0$ es vertical sobre la cintura; aplicamos un giro de torsión $\alpha_1 = +90^\circ$ ($+\pi/2\;\text{rad}$) en el primer eslabón para que el eje $Z_1$ quede horizontal, y como definimos $\alpha_2 = 0$ en el segundo eslabón, el eje $Z_2$ se mantiene paralelo a $Z_1$ ($Z_2 \parallel Z_1$) para las rotaciones coplanares del hombro y del codo.}
+
+\accion{Señalar la Tabla 1 arriba a la derecha y luego las tres matrices $A_1, A_2, A_3$ en el recuadro verde inferior.}
+\speech{Al evaluar la matriz elemental \texttt{DHL(theta, d, a, alpha)} para las tres filas de la Tabla 1, obtenemos las matrices homogéneas individuales $A_1(q_1)$, $A_2(q_2)$ y $A_3(q_3)$ del recuadro verde, cuyo producto sucesivo define la transformación total $T_0^3(\bm{q})$. Doy pase a mi compañero \textbf{Franklin Alegría} para la validación de los tres métodos y la cinemática inversa.}
+\end{cajaexpositor}
+
+% =====================================================================
+% EXPOSITOR 2
+% =====================================================================
+\begin{cajaexpositor}[uniGranate]{EXPOSITOR 2: Franklin Enrique Alegría Barboza (Minuto 03:00 a 06:00 \,|\, Diapositivas 4 y 5)}
+
+\textbf{\color{uniGranate}Bloque 2.1 --- [03:00 -- 04:30] Diapositiva 4: Métodos MTH, Geométrico y Verificación Numérica}
+\accion{Avanzar a la Diapositiva 4. Señalar la matriz $T_0^3(\bm{q})$ en el recuadro azul superior izquierdo.}
+\speech{Gracias, Amit. En la Diapositiva 4 presentamos la matriz cerrada $T_0^3(\bm{q})$ obtenida al multiplicar $A_1 A_2 A_3$. Sus tres primeras columnas describen la orientación del efector respecto a la base fija y la cuarta columna entrega las coordenadas cartesianas $[x, y, z]^\top$ de la punta.}
+
+\accion{Señalar el recuadro verde inferior izquierdo (Métodos 2 y 3).}
+\speech{Para comprobar esta formulación aplicamos dos métodos adicionales: el \textbf{Método 2 de Matrices de Transformación Homogénea sucesivas}, componiendo la traslación vertical $d_1$, la rotación acimutal $q_1$ en $Z$ y las elevaciones $-q_2$ y $-q_3$ en $Y$ desplazadas en $L_1$ y $L_2$; y el \textbf{Método 3 Geométrico Directo}, proyectando el alcance radial plano $r(q_2,q_3) = L_1\cos q_2 + L_2\cos(q_2+q_3)$ sobre los ejes $X_0, Y_0$ y sumando las alturas verticales sobre $Z_0$.}
+
+\accion{Señalar la tabla de la derecha (\emph{Verificación Simbólica y Numérica de $T_0^1, T_0^2, T_0^3$}) indicando la tercera columna numérica.}
+\speech{En la tabla derecha verificamos simbólica y numéricamente las posiciones intermedias en la postura inicial $\bm{q}_0 = [-1{,}10,\; 0{,}85,\; -0{,}75]^\top\;\text{rad}$: el hombro $T_0^1$ se ubica a $0{,}079\;\text{m}$ de altura, el codo $T_0^2$ en $[0{,}0338,\; -0{,}0665,\; 0{,}1639]^\top\;\text{m}$ y el efector $T_0^3$ en $[0{,}0970,\; -0{,}1906,\; 0{,}1779]^\top\;\text{m}$. La discrepancia entre el cálculo simbólico en MATLAB y el motor físico MuJoCo es inferior a $10^{-15}\;\text{m}$.}
+
+\textbf{\color{uniGranate}Bloque 2.2 --- [04:30 -- 06:00] Diapositiva 5: Cinemática Inversa Analítica de Doble Rama}
+\accion{Avanzar a la Diapositiva 5. Señalar los pasos 1, 2 y 3 en el recuadro azul izquierdo.}
+\speech{En la Diapositiva 5 resolvemos el problema cinemático inverso en forma analítica cerrada para ambas configuraciones del mecanismo plano hombro-codo. Primero desacoplamos el giro de cintura mediante $q_1 = \operatorname{atan2}(y, x)$ y definimos las coordenadas cilíndricas en el plano vertical del brazo: el radio $r = \sqrt{x^2+y^2}$ y la cota relativa al hombro $z' = z - d_1$. Segundo, aplicamos la ley de cosenos al triángulo formado por $L_1$, $L_2$ y la distancia hombro-objetivo $D$, obteniendo las dos soluciones simétricas del codo mediante el índice de rama $\sigma = \pm 1$. Tercero, despejamos el ángulo de hombro $q_2^{(\sigma)}$ mediante descomposición trigonométrica con $\operatorname{atan2}$.}
+
+\accion{Señalar el recuadro verde derecho (\emph{Validación Numérica en el Objetivo Nominal}) y remarcar con el puntero el error \texttt{0,0000 mm}.}
+\speech{Al evaluar el aro objetivo nominal $[0{,}165,\; 0{,}075,\; 0{,}165]^\top\;\text{m}$, obtenemos explícitamente la \textbf{Rama 1} ($\bm{q}^{(+)} = [0{,}4266,\; -0{,}2991,\; +1{,}3192]^\top\;\text{rad}$) y la \textbf{Rama 2} ($\bm{q}^{(-)} = [0{,}4266,\; +1{,}1852,\; -1{,}3192]^\top\;\text{rad}$). Al sustituir ambas ramas en la cinemática directa, el error euclidiano de reconstrucción es exactamente \textbf{cero milímetros}. En operación seleccionamos la primera rama por ofrecer máxima holgura respecto a los topes mecánicos del hombro. Cedo la palabra a \textbf{José Luis Espinoza}.}
+\end{cajaexpositor}
+
+% =====================================================================
+% EXPOSITOR 3
+% =====================================================================
+\begin{cajaexpositor}[uniAzulC]{EXPOSITOR 3: José Luis Espinoza Chamaya (Minuto 06:00 a 09:00 \,|\, Diapositivas 6 y 7)}
+
+\textbf{\color{uniAzulC}Bloque 3.1 --- [06:00 -- 07:25] Diapositiva 6: Cinemática Diferencial --- Jacobiano Geométrico $6\times 3$}
+\accion{Avanzar a la Diapositiva 6. Señalar la ecuación matricial de productos cruz en el recuadro azul superior izquierdo.}
+\speech{Muchas gracias, Franklin. En la Diapositiva 6 desarrollamos la cinemática diferencial completa que mapea las velocidades articulares $\dot{\bm{q}}$ hacia la velocidad lineal $\dot{\bm{p}}$ y la velocidad angular $\bm{\omega}$ del efector final mediante el \textbf{Jacobiano geométrico de dimensión $6\times 3$}. Como las tres articulaciones son rotacionales, cada columna $i$ del bloque lineal $J_v$ se construye mediante el producto vectorial $\bm{z}_{i-1} \times (\bm{p}_3 - \bm{p}_{i-1})$, y cada columna del bloque angular $J_\omega$ es directamente el vector unitario del eje de giro $\bm{z}_{i-1}$ extraído de las matrices acumuladas.}
+
+\accion{Señalar el recuadro verde inferior izquierdo ($J_v$ y $J_\omega$ analíticos) y luego las matrices numéricas a la derecha.}
+\speech{En el recuadro verde presentamos las matrices analíticas cerradas de $J_v(\bm{q})$ y $J_\omega(\bm{q})$. Cabe precisar que, al contar el robot únicamente con 3 GDL, la orientación angular $\bm{\omega} = J_\omega \dot{\bm{q}}$ queda acoplada a la posición traslacional; por ello, el control en espacio de tarea se ejecuta sobre el bloque cuadrado traslacional $J_v \in \mathbb{R}^{3\times 3}$, el cual verificamos simbólicamente en MATLAB frente al comando \texttt{jacobian(P, q)}.}
+
+\textbf{\color{uniAzulC}Bloque 3.2 --- [07:25 -- 09:00] Diapositiva 7: Singularidades, Manipulabilidad y Regularización DLS}
+\accion{Avanzar a la Diapositiva 7. Señalar la ecuación factorizada de $\det J_v(\bm{q})$ en el recuadro azul superior izquierdo y luego las dos familias en el recuadro naranja inferior izquierdo.}
+\speech{En la Diapositiva 7 analizamos las configuraciones singulares donde el bloque traslacional $J_v(\bm{q})$ pierde rango. Al factorizar su determinante obtenemos la expresión cerrada $\det J_v(\bm{q}) = -L_1 L_2 \sin(q_3)\, r(q_2, q_3)$. La anulación de este determinante identifica dos familias físicas de singularidades: primero, la \textbf{singularidad de frontera de codo} cuando $\sin q_3 = 0$ ($q_3 = 0$ con el brazo totalmente extendido en $R_{\max} = 0{,}253\;\text{m}$, o $q_3 = \pm\pi$ plegado), donde el índice de manipulabilidad de Yoshikawa $w(\bm{q})$ colapsa exactamente a cero; y segundo, la \textbf{singularidad axial de hombro} cuando $r(q_2, q_3) = 0$, es decir, cuando la punta del robot intersecta el eje vertical $Z_0$, anulando por completo la primera columna de $J_v$.}
+
+\accion{Señalar el recuadro verde derecho (\emph{Diagnóstico en $\bm{q}_0$ y Regularización CLIK-DLS}), destacando la fórmula de $J^\dagger_{\text{DLS}}(\bm{q})$.}
+\speech{En nuestra postura inicial $\bm{q}_0$, el determinante vale $2{,}306\times 10^{-3}\;\text{m}^3$ y el número de condición es $\kappa = 6{,}82$, certificando operación regular. Sin embargo, para transitar desde codo arriba ($q_{3,0} = -0{,}75\;\text{rad}$) hacia codo abajo ($q_{3,\text{meta}} = +1{,}32\;\text{rad}$), el brazo debe cruzar obligatoriamente la frontera singular $q_3 = 0$. Para evitar que la matriz inversa clásica dispare velocidades articulares infinitas, implementamos la \textbf{pseudoinversa amortiguada de Levenberg--Marquardt (DLS)} con factor $\lambda \in [0{,}015,\; 0{,}025]$, que invierte cada valor singular como $\sigma_i / (\sigma_i^2 + \lambda^2)$, garantizando un cruce suave y acotado. Doy pase a nuestra compañera \textbf{Raquel Medianero}.}
+\end{cajaexpositor}
+
+% =====================================================================
+% EXPOSITORA 4
+% =====================================================================
+\begin{cajaexpositor}[verdeOk]{EXPOSITORA 4: Raquel Medianero Huari (Minuto 09:00 a 12:00 \,|\, Diapositivas 8, 9 y 10)}
+
+\textbf{\color{verdeOk}Bloque 4.1 --- [09:00 -- 10:05] Diapositiva 8: Trayectorias y Foco en la Sintonización Óptima del CTC}
+\accion{Avanzar a la Diapositiva 8. Señalar el recuadro azul izquierdo (Planificación Polinomial) y el recuadro verde inferior izquierdo (CLIK-DLS).}
+\speech{Gracias, José Luis. En la Diapositiva 8 presentamos la planificación de trayectorias y la arquitectura de control. Siguiendo la Sesión 7 del curso, implementamos tanto el interpolador \textbf{polinomial cúbico} ($C^1$) en MATLAB como el \textbf{polinomio quíntico} ($C^2$), $s(u) = 10u^3 - 15u^4 + 6u^5$, que garantiza velocidad y aceleración nulas en los extremos sin discontinuidades de par. En el espacio cartesiano empleamos como referencia el \textbf{Control Cinemático Amortiguado (CLIK-DLS)} acoplado a la dinámica inversa.}
+
+\accion{Señalar el recuadro azul derecho deteniéndose especialmente en la ecuación del CTC y el vector óptimo $\bm{\theta}^*$ de NSGA-II (pasando rápidamente sobre el último ítem de MPC).}
+\speech{En el espacio articular, siguiendo el lineamiento directo visto en cátedra, \textbf{el núcleo central de nuestra propuesta dinámica es el Control por Torque Computado (CTC)} y la obtención de sus \textbf{mejores ganancias de control}. Si bien incluimos en la tabla al MPC clásico y a un esquema híbrido únicamente como comparadores de referencia de la literatura, nuestro trabajo demuestra que no es necesario combinar el CTC con un MPC para mejorar el desempeño: mediante el algoritmo evolutivo multiobjetivo \textbf{NSGA-II} sintonizamos el vector óptimo de seis ganancias $\bm{\theta}^* = [K_{p,1..3},\, K_{d,1..3}]^\top$, minimizando simultáneamente el error de seguimiento y la energía de actuación ante $+25\,\%$ de incertidumbre de masa y perturbaciones.}
+
+\textbf{\color{verdeOk}Bloque 4.2 --- [10:05 -- 11:10] Diapositiva 9: Evaluación Cuantitativa de Controladores (Tabla 2)}
+\accion{Avanzar a la Diapositiva 9. Señalar en la Tabla 2 la fila del CTC Base (\texttt{PD}), compararla con las filas verdes (\texttt{EVO - CTC NSGA-II}) y las filas azules (\texttt{KIN - CLIK-DLS}).}
+\speech{La Tabla 2 en la Diapositiva 9 confirma numéricamente esta premisa sobre la planta 3D en MuJoCo: mientras que el MPC y el híbrido quedan en torno a $6{,}8\;\text{mm}$ de RMSE, nuestro \textbf{CTC con ganancias optimizadas por NSGA-II (bloque EVO)} reduce el RMSE de seguimiento en \textbf{$33{,}5\,\%$} ($4{,}573\;\text{mm}$ frente a $6{,}879\;\text{mm}$ del CTC base) y reduce el error estacionario en \textbf{$42{,}2\,\%$}, acortando el tiempo de captura en $1{,}34\;\text{s}$ y el tiempo de recuperación ante perturbaciones en \textbf{$34{,}4\,\%$} ($0{,}382\;\text{s}$ vs.\ $0{,}582\;\text{s}$) con menor consumo de energía. Así, el CTC óptimamente sintonizado compite de tú a tú con el controlador cinemático \textbf{CLIK-DLS} ($0{,}273\;\text{mm}$ de error final y $0{,}242\;\text{s}$ de recuperación).}
+
+\textbf{\color{verdeOk}Bloque 4.3 --- [11:10 -- 12:00] Diapositiva 10: Curvas Experimentales y Mapa de Manipulabilidad}
+\accion{Avanzar a la Diapositiva 10. Señalar los paneles (a), (b) y (c) de la Figura 2.}
+\speech{En la Diapositiva 10 las curvas experimentales lo ratifican: en el \textbf{panel (a)}, ante la perturbación externa en la franja rosada ($6{,}0$ a $6{,}6\;\text{s}$), las curvas verde (\textbf{CTC NSGA-II}) y roja (\textbf{CLIK-DLS}) dominan claramente al resto y retornan de inmediato a la banda inferior a $2\;\text{mm}$. En el \textbf{panel (b)} se aprecia la campana suave de rapidez cartesiana $\lVert \dot{\bm{p}} \rVert = \lVert J_v \dot{\bm{q}} \rVert$, y en el \textbf{panel (c)} el mapa exacto de manipulabilidad de Yoshikawa muestra cómo la trayectoria cruza sin singularidades numéricas la línea roja $\sin q_3 = 0$ desde la postura inicial hasta la meta. Doy pase a \textbf{Yasmín Urrego}.}
+\end{cajaexpositor}
+
+% =====================================================================
+% EXPOSITORA 5
+% =====================================================================
+\begin{cajaexpositor}[morado]{EXPOSITORA 5: Yasmín Mariela Urrego Montoya (Minuto 12:00 a 15:00 \,|\, Diapositivas 11 y 12)}
+
+\textbf{\color{morado}Bloque 5.1 --- [12:00 -- 13:30] Diapositiva 11: Modo Juego «Circuito de 5 Aros» y Máquina de Estados 3D}
+\accion{Avanzar a la Diapositiva 11. Señalar de izquierda a derecha las tres capturas reales del Gemelo Digital 3D en MuJoCo (Figura 3) y luego la Tabla 3 inferior.}
+\speech{Muchas gracias, Raquel. En la Diapositiva 11 presentamos la validación funcional interactiva en el Gemelo Digital 3D de MuJoCo (\texttt{main.py}). Incorporamos una esfera energética en la pinza y aros receptores 3D gobernados por una máquina de estados con cambio de color en tiempo real:
+en la vista \textbf{izquierda (Estado 1: EN MOVIMIENTO)}, la esfera naranja se aproxima al aro rojo midiendo en vivo la rapidez cartesiana;
+en la vista \textbf{central (Estado 2: PERTURBACIÓN ACTIVA)}, la esfera conmuta a magenta alertando fuerzas externas;
+y en la vista \textbf{derecha (Estado 3: ¡ENCESTADO!)}, cuando el error cartesiano baja de \textbf{$2{,}0\;\text{mm}$}, tanto la esfera como el aro conmutan automáticamente a \textbf{Verde Esmeralda brillante}. Como muestra la Tabla 3, en los perfiles Estándar, Rápido y \textbf{Turbo ($1{,}5\;\text{s}$ por aro)} el robot logra \textbf{5 de 5 aros encestados}, alcanzando en modo Turbo una rapidez pico de \textbf{$466{,}1\;\text{mm/s}$} y captura media de \textbf{$1{,}82\;\text{s}$ por aro} sin saturar los actuadores.}
+
+\textbf{\color{morado}Bloque 5.2 --- [13:30 -- 15:00] Diapositiva 12: Conclusiones e Integración de Redes Neuronales Convolucionales (CNN)}
+\accion{Avanzar a la Diapositiva 12. Señalar los puntos del recuadro verde izquierdo (\emph{Conclusiones Principales e Integración de Visión por CNN}).}
+\speech{Finalmente, en la Diapositiva 12 sintetizamos nuestras conclusiones y la arquitectura de Inteligencia Artificial:
+\textbf{Primero}, demostramos la identidad exacta ($<10^{-15}\;\text{m}$) entre los tres métodos de cinemática directa en MATLAB y MuJoCo, y resolvimos las dos ramas de cinemática inversa con \textbf{$0{,}00\;\text{mm}$} de error.
+\textbf{Segundo}, formulamos el Jacobiano $6\times 3$ y cruzamos de forma segura la singularidad de codo ($\sin q_3 = 0$) mediante la pseudoinversa amortiguada DLS ($\lambda = 0{,}018$).
+\textbf{Tercero}, demostramos que sintonizar óptimamente las ganancias del \textbf{CTC mediante NSGA-II} reduce el RMSE en $33{,}5\,\%$ y el error estacionario en $42{,}2\,\%$, compitiendo directamente con \textbf{CLIK-DLS} ($0{,}273\;\text{mm}$).
+\textbf{Y cuarto —en respuesta directa a la integración de Redes Neuronales Profundas solicitada en el curso—}, planteamos la extensión inmediata hacia el Examen Final reemplazando la consigna manual de coordenadas XYZ por un módulo de \textbf{Visión Artificial basado en Redes Neuronales Convolucionales (CNN)} acoplado a un perceptrón multicapa (MLP): la cámara virtual de MuJoCo captura la imagen RGB-D de la escena, las capas convolucionales extraen el mapa de características para estimar en tiempo real el centroide 3D del aro $\hat{\bm{p}}_{\text{obj}} = [x, y, z]^\top$, y dicho vector alimenta automáticamente nuestra cinemática inversa analítica y al controlador CTC evolutivo, cerrando así un lazo visuomotor autónomo de extremo a extremo.
+Muchas gracias por su atención; quedamos atentos a las preguntas del jurado.}
+\end{cajaexpositor}
+
+\end{document}
